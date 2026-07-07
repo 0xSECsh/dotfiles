@@ -1,42 +1,45 @@
-````markdown
 # My Linux Dotfiles
 
 A curated collection of my personal Linux configuration files focused on **productivity**, **development**, and **cybersecurity**.
 
-This repository contains the configuration files I use daily for a clean, lightweight, and keyboard-driven workflow powered by **SwayWM**.
+This repository contains the configuration files I use daily for a clean, lightweight, keyboard-driven workflow powered by **SwayWM** and other modern Linux tools.
 
 ---
 
-## 📸 Screenshots
+# 📸 Screenshots
 
-### Desktop
+## Desktop
 
-![Desktop](screenshots/desktop.png)
-
-### Terminal (Foot)
-
-![Terminal](screenshots/terminal.png)
-
-### Launcher
-
-![Launcher](screenshots/launcher.png)
+![Desktop](./screenshots/desktop.png)
 
 ---
 
-## ✨ Features
+## Terminal (Foot)
+
+![Terminal](./screenshots/terminal.png)
+
+---
+
+## Launcher
+
+![Launcher](./screenshots/launcher.png)
+
+---
+
+# ✨ Features
 
 - Minimal and clean desktop environment
 - Keyboard-driven workflow
-- Lightweight and fast
-- Developer-friendly terminal configuration
-- Modern shell powered by Zsh + Powerlevel10k
 - Wayland-native setup
+- Lightweight and fast
+- Developer-friendly configuration
+- Modern shell powered by Zsh + Powerlevel10k
 - Easy to customize
 - Version-controlled configuration files
 
 ---
 
-## 🛠 Applications
+# 🛠 Applications
 
 | Application | Description |
 |-------------|-------------|
@@ -50,21 +53,31 @@ This repository contains the configuration files I use daily for a clean, lightw
 
 ---
 
-## 📂 Repository Structure
+# 📂 Repository Structure
 
 ```text
 .
 ├── foot/
+│   └── foot.ini
 ├── kitty/
+│   └── kitty.conf
 ├── micro/
+│   ├── bindings.json
+│   └── settings.json
 ├── p10k/
+│   └── .p10k.zsh
 ├── screenshots/
 │   ├── desktop.png
 │   ├── terminal.png
 │   └── launcher.png
 ├── sway/
+│   └── config
 ├── waybar/
+│   ├── config.jsonc
+│   └── style.css
 ├── zsh/
+│   └── .zshrc
+├── .gitignore
 ├── install.sh
 ├── LICENSE
 └── README.md
@@ -72,7 +85,7 @@ This repository contains the configuration files I use daily for a clean, lightw
 
 ---
 
-## 🚀 Installation
+# 🚀 Installation
 
 Clone the repository:
 
@@ -84,6 +97,12 @@ cd dotfiles
 Copy the configuration files:
 
 ```bash
+mkdir -p ~/.config/sway
+mkdir -p ~/.config/waybar
+mkdir -p ~/.config/foot
+mkdir -p ~/.config/kitty
+mkdir -p ~/.config/micro
+
 cp sway/config ~/.config/sway/
 
 cp waybar/config.jsonc ~/.config/waybar/
@@ -104,7 +123,7 @@ Restart your shell or log out and back in.
 
 ---
 
-## 📦 Dependencies
+# 📦 Dependencies
 
 Recommended packages:
 
@@ -120,9 +139,9 @@ Recommended packages:
 
 ---
 
-## 🎨 Font
+# 🎨 Fonts
 
-For the best experience, install a Nerd Font.
+For the best experience, install a **Nerd Font**.
 
 Recommended fonts:
 
@@ -132,15 +151,24 @@ Recommended fonts:
 
 ---
 
-## ⚙️ Customization
+# ⚙️ Customization
 
-Feel free to adapt these configurations to your own workflow.
+Feel free to modify these configurations to fit your own workflow.
 
-This repository is continuously updated as I improve my Linux development environment.
+This repository is continuously updated as I improve my Linux workstation.
 
 ---
 
-## 📄 License
+# 🤝 Contributing
+
+Suggestions, improvements and pull requests are always welcome.
+
+If you have ideas to improve this setup, feel free to open an issue or submit a pull request.
+
+---
+
+# 📄 License
 
 This project is licensed under the MIT License.
-````
+
+See the **LICENSE** file for more information.
