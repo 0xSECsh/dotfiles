@@ -1,4 +1,4 @@
-# My Linux Dotfiles
+# Minimal Dark Sway Dotfiles
 
 A curated collection of my personal Linux configuration files focused on **productivity**, **development**, and **cybersecurity**.
 
