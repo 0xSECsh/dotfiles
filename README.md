@@ -3,17 +3,23 @@
 
 A curated collection of my personal Linux configuration files focused on **productivity**, **development**, and **cybersecurity**.
 
-This repository contains the configuration files I use daily for a clean, lightweight, and keyboard-driven workflow based on **SwayWM**.
+This repository contains the configuration files I use daily for a clean, lightweight, and keyboard-driven workflow powered by **SwayWM**.
 
 ---
 
 ## 📸 Screenshots
 
-> Screenshots will be added soon.
+### Desktop
 
-| Desktop | Terminal | Launcher |
-|---------|----------|----------|
-| `screenshots/desktop.png` | `screenshots/terminal.png` | `screenshots/launcher.png` |
+![Desktop](screenshots/desktop.png)
+
+### Terminal (Foot)
+
+![Terminal](screenshots/terminal.png)
+
+### Launcher
+
+![Launcher](screenshots/launcher.png)
 
 ---
 
@@ -23,7 +29,8 @@ This repository contains the configuration files I use daily for a clean, lightw
 - Keyboard-driven workflow
 - Lightweight and fast
 - Developer-friendly terminal configuration
-- Modern prompt with Powerlevel10k
+- Modern shell powered by Zsh + Powerlevel10k
+- Wayland-native setup
 - Easy to customize
 - Version-controlled configuration files
 
@@ -31,13 +38,15 @@ This repository contains the configuration files I use daily for a clean, lightw
 
 ## 🛠 Applications
 
-- **Sway**
-- **Waybar**
-- **Foot**
-- **Kitty**
-- **Micro**
-- **Zsh**
-- **Powerlevel10k**
+| Application | Description |
+|-------------|-------------|
+| **Sway** | Wayland compositor |
+| **Waybar** | Status bar |
+| **Foot** | Primary terminal emulator |
+| **Kitty** | GPU-accelerated terminal emulator |
+| **Micro** | Terminal-based text editor |
+| **Zsh** | Interactive shell |
+| **Powerlevel10k** | Zsh prompt theme |
 
 ---
 
@@ -50,13 +59,16 @@ This repository contains the configuration files I use daily for a clean, lightw
 ├── micro/
 ├── p10k/
 ├── screenshots/
+│   ├── desktop.png
+│   ├── terminal.png
+│   └── launcher.png
 ├── sway/
 ├── waybar/
 ├── zsh/
 ├── install.sh
 ├── LICENSE
 └── README.md
-````
+```
 
 ---
 
@@ -65,11 +77,11 @@ This repository contains the configuration files I use daily for a clean, lightw
 Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/dotfiles.git
+git clone https://github.com/0xSECsh/dotfiles.git
 cd dotfiles
 ```
 
-Copy the configuration files to your system:
+Copy the configuration files:
 
 ```bash
 cp sway/config ~/.config/sway/
@@ -96,43 +108,39 @@ Restart your shell or log out and back in.
 
 Recommended packages:
 
-* sway
-* waybar
-* foot
-* kitty
-* micro
-* zsh
-* git
-* Powerlevel10k
-* Nerd Fonts (recommended)
+- Sway
+- Waybar
+- Foot
+- Kitty
+- Micro
+- Zsh
+- Git
+- Powerlevel10k
+- Nerd Fonts
 
 ---
 
 ## 🎨 Font
 
-For the best experience, install a **Nerd Font**.
+For the best experience, install a Nerd Font.
 
 Recommended fonts:
 
-* MesloLGS NF
-* JetBrainsMono Nerd Font
-* FiraCode Nerd Font
+- MesloLGS NF
+- JetBrainsMono Nerd Font
+- FiraCode Nerd Font
 
 ---
 
-## ⚙ Customization
+## ⚙️ Customization
 
-Feel free to modify the configuration files to match your own workflow.
+Feel free to adapt these configurations to your own workflow.
 
-This repository is intended to evolve over time as I continue improving my Linux development environment.
+This repository is continuously updated as I improve my Linux development environment.
 
 ---
 
 ## 📄 License
 
 This project is licensed under the MIT License.
-
-See the `LICENSE` file for more information.
-
-```
-```
+````
