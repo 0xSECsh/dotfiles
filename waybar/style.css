@@ -1,0 +1,97 @@
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "Iosevka Term";
+  font-size: 16px;
+  padding: 0;
+}
+
+window#waybar {
+  background: #202020;
+  color: #666666;
+  border-bottom: 2px solid #666666;
+}
+
+/* Tooltip */
+tooltip {
+  background-color: #202020;
+  border: 1px solid #666666;
+}
+
+/* Módulos */
+#clock,
+#tray,
+#cpu,
+#memory,
+#disk,
+#battery,
+#network,
+#wireplumber,
+#backlight {
+  margin: 2px 2px 0px 0px;
+  padding: 2px 8px;
+  color: #666666;
+}
+
+/* Separadores via CSS */
+#cpu, #memory, #disk, #wireplumber, #backlight, #battery, #network, #clock {
+  border-left: 1px solid #444444;
+}
+
+/* Hover (interação visual) */
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#network:hover,
+#wireplumber:hover {
+  color: #ff5555;
+}
+
+/* Workspaces */
+#workspaces button {
+  color: #9b8d7f;
+  padding: 0 6px;
+}
+
+/* Workspace ativo */
+#workspaces button.focused {
+  background-color: #666666;
+  color: #202020;
+}
+
+/* Workspace ocupado */
+#workspaces button.active {
+  color: #666666;
+}
+
+/* Hover workspace */
+#workspaces button:hover {
+  background-color: #2a2a2a;
+  color: #ff5555;
+}
+
+/* Mode (resize, special) */
+#mode {
+  color: #ff5555;
+  padding: 0 8px;
+}
+
+/* Estados importantes */
+
+#battery.warning {
+  color: #ffb86c;
+}
+
+#battery.critical {
+  color: #ff5555;
+}
+
+#network.disconnected {
+  color: #ff5555;
+}
+
+#wireplumber.muted {
+  color: #ff5555;
+}

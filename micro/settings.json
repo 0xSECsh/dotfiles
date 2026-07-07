@@ -1,0 +1,17 @@
+{
+    "autosave": 30,
+    "colorscheme": "cmc-16",
+    "scrollmargin": 8,
+    "softwrap": true,
+    "wordwrap": true,
+    "tabstospaces": true,
+    "tabsize": 2,
+    "autoindent": true,
+    "autoclose": true,
+    "ruler": true,
+    "cursorline": true,
+    "saveundo": true,
+    "mkparents": true,
+    "eofnewline": true,
+    "syntax": true
+}

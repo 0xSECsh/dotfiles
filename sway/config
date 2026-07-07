@@ -1,0 +1,196 @@
+# Sway Config (Clean & Optimized)
+# ================================
+# ================================
+
+### Autostart
+exec_always waybar
+exec  mako
+#exec_always nm-applet
+exec udiskie
+exec wl-paste --watch cliphist store
+output * bg #0A0A0A solid_color
+# exec_always swaybg -i ~/Pictures/Wallpaper/dotred.jpg -m fill
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+### Variables
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term kitty
+set $browser google-chrome-stable
+
+font pango:Iosevka Term 10
+
+### Output
+output eDP-1 mode 1920x1200@60Hz pos 0 0 scale 1
+output HDMI-A-1 mode 1920x1080@60hz pos 1920 0 scale 1 transform 90
+#output * max_render_time 1
+
+### Idle
+exec_always swayidle -w \
+    timeout 600 'swaylock -f -c 000000' \
+    timeout 1800 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+### Input
+input "type:keyboard" {
+	xkb_layout br
+	xkb_variant abnt2 
+        xkb_model thinkpad
+}
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+#   natural_scroll enable
+    middle_emulation enabled
+
+}
+
+input * {
+    repeat_delay 350
+    repeat_rate 50
+}
+
+### Keybindings
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term
+bindsym $mod+Shift+f exec $browser
+bindsym $mod+Shift+w exec pkill waybar && waybar
+bindsym XF86Assistant exec foot micro
+
+
+# Logout do Sway
+bindsym $mod+Shift+BackSpace exec swaymsg exit
+
+bindsym $mod+Shift+x exec swaylock -f -c 000000
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+r reload
+
+# Launcher
+bindsym $mod+d exec fuzzel
+#bindsym $mod+d exec "fuzzel --dmenu"
+
+#ScreenShoot
+
+# Comandos de notificação
+set $notify_clip notify-send -i edit-copy "Captura de Tela" "Copiada para a área de transferência"
+
+# Print: Área selecionada -> Salvar em arquivo
+#bindsym Print exec grim -g "$(slurp)" $screenshot_file && eval $notify_file
+
+# Print: Seleciona uma área com o slurp e abre no Swappy
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+
+# Shift+Print: Tela inteira -> Salvar em arquivo
+#bindsym Shift+Print exec grim $screenshot_file && eval $notify_file
+
+# Shift+Print: Tira print da tela inteira e abre no Swappy
+bindsym Shift+Print exec grim - | swappy -f -
+
+# Ctrl+Print: Área selecionada -> Área de transferência (Clipboard)
+bindsym Ctrl+Print exec grim -g "$(slurp)" - | wl-copy && eval $notify_clip
+
+# Ctrl+Shift+Print: Tela inteira -> Área de transferência (Clipboard)
+bindsym Ctrl+Shift+Print exec grim - | wl-copy && eval $notify_clip
+
+# Mouse
+bindsym $mod+Button1 move
+bindsym $mod+Button3 resize
+
+# Movement
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+### Workspaces
+bindsym $mod+y workspace number 1
+bindsym $mod+u workspace number 2
+bindsym $mod+i workspace number 3
+bindsym $mod+o workspace number 4
+bindsym $mod+p workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+y move container to workspace number 1
+bindsym $mod+Shift+u move container to workspace number 2
+bindsym $mod+Shift+i move container to workspace number 3
+bindsym $mod+Shift+o move container to workspace number 4
+bindsym $mod+Shift+p move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+### Layout
+bindsym $mod+b splith
+bindsym $mod+v splitv
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
+### Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+### Resize mode
+mode "resize" {
+    bindsym $left resize shrink width 80px
+    bindsym $down resize grow height 80px
+    bindsym $up resize shrink height 80px
+    bindsym $right resize grow width 80px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### Special mode
+mode "special" {
+    bindsym c exec wl-color-picker clipboard; mode "default"
+    bindsym s exec grimshot copy area; mode "default"
+    bindsym a exec grimshot save area; mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+z mode "special"
+
+### Audio / Brightness
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+### Window styling
+default_border pixel 1
+default_floating_border pixel 2
+gaps inner 10
+gaps outer 6
+
+client.focused #8c8c8c #8c8c8c #ffffff #8c8c8c #8c8c8c
+client.focused_inactive #202020 #202020 #9b8d7f #202020 #202020
+client.unfocused #202020 #202020 #9b8d7f #202020 #202020
+
+### Input Method
+#exec --no-startup-id fcitx5 -d
+
+include /etc/sway/config.d/*

@@ -1,0 +1,16 @@
+# Logs
+*.log
+
+# Editor
+*~
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Cache
+.cache/
+
+# Temporary files
+tmp/

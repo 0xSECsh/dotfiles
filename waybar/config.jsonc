@@ -1,0 +1,41 @@
+{
+  "position": "top",
+  "spacing": 0,
+  "height": 0,
+  "reload_style_on_change": true,
+  "layer": "top",
+  "modules-left": ["sway/workspaces","sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": [
+    "tray","cpu","memory","disk","wireplumber","backlight","battery","network","clock"
+  ],
+  "sway/window": {"max-length": 50},
+  "tray": {"spacing": 10,"tooltip": false},
+  "cpu": {"format": "cpu {usage}%","interval": 2,"states":{"critical":90}},
+  "memory": {"format": "mem {percentage}%","interval": 5,"states":{"critical":80}},
+  "disk": {"path": "/","format": "hdd {percentage_used}%","interval": 30},
+  "wireplumber": {
+    "scroll-step": 5,
+    "max-volume": 100,
+    "format": "vol {volume}%",
+    "format-muted": "vol mute",
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+  "backlight": {"format": "bri {percent}%","tooltip": false},
+  "battery": {
+    "format": "bat {capacity}%",
+    "format-charging": "bat ↑ {capacity}%",
+    "format-plugged": "bat ⚡ {capacity}%",
+    "interval": 5,
+    "states":{"warning":20,"critical":10},
+    "tooltip": false
+  },
+  "clock": {"format": "{:%a %d %b  %H:%M:%S}"},
+  "network": {
+    "format-wifi": "wifi {essid} ({signalStrength}%)",
+    "format-ethernet": "eth {ipaddr}/{cidr}",
+    "format-disconnected": "net offline",
+    "tooltip": false
+  }
+}
